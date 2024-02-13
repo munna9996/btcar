@@ -78,29 +78,29 @@
     			<div class="col-md-12	featured-top">
     				<div class="row no-gutters">
 	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="https://sheetdb.io/api/v1/7futym1m32wbq" class="request-form ftco-animate bg-primary">
+	  						<form action="https://sheetdb.io/api/v1/7futym1m32wbq" method="POST" id="sheetdb-form" class="request-form ftco-animate bg-primary">
 		          		<h2>Make your trip</h2>
 			    				<div class="form-group">
 			    					<label for="" class="label">Pick-up location</label>
-			    					<input type="text" class="form-control"  id="Pick_up_location" placeholder="City, Airport, Station, etc">
+			    					<input type="text" class="form-control"  id="Pick_up_location" name="data[Pick_up_location]" placeholder="City, Airport, Station, etc">
 			    				</div>
 			    				<div class="form-group">
 			    					<label for="" class="label">Drop-off location</label>
-			    					<input type="text" class="form-control" id="Drop_off_location" placeholder="City, Airport, Station, etc">
+			    					<input type="text" class="form-control" id="Drop_off_location" name="data[Drop_off_location]" placeholder="City, Airport, Station, etc">
 			    				</div>
 			    				<div class="d-flex">
 			    					<div class="form-group mr-2">
 			                <label for="" class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
+			                <input type="text" class="form-control" id="book_pick_date" name="data[book_pick_date]" placeholder="Date">
 			              </div>
 			              <div class="form-group ml-2">
 			                <label for="" class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
+			                <input type="text" class="form-control" id="book_off_date" name="data[book_off_date]" placeholder="Date">
 			              </div>
 		              </div>
 		              <div class="form-group">
 		                <label for="" class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
+		                <input type="text" class="form-control" id="time_pick" name="data[time_pick] placeholder="Time">
 		              </div>
 			            <div class="form-group">
 			              <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
@@ -554,6 +554,22 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+  
+  <script>
+            var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            window.open('https://www.vmrcarrental.com/thank-you', '_blank');
+
+          });
+        });
+        </script>  
   </body>
 </html>
