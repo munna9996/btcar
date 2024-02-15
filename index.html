@@ -570,5 +570,23 @@
           });
         });
         </script>  
+
+	  <script>
+function initAutocomplete() {
+  var pickUpInput = document.getElementById('Pick_up_location');
+  var dropOffInput = document.getElementById('Drop_off_location');
+
+  var options = {
+    types: ['geocode'] // Restrict autocomplete results to geographical locations
+  };
+
+  var pickUpAutocomplete = new google.maps.places.Autocomplete(pickUpInput, options);
+  var dropOffAutocomplete = new google.maps.places.Autocomplete(dropOffInput, options);
+}
+
+// Call the initAutocomplete function when the page loads
+google.maps.event.addDomListener(window, 'load', initAutocomplete);
+</script>
+
   </body>
 </html>
