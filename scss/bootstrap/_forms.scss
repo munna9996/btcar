@@ -331,11 +331,13 @@ textarea.form-control {
 
 
 
+// Assuming existing form styles are defined here
 
+// Button styles
 .button {
   background-color: #4CAF50;
   border: none;
-  color: red;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -344,21 +346,21 @@ textarea.form-control {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
+}
 
-  // Additional styles for all buttons...
+// Additional styles for all buttons...
 
-  // Specific styles for each button based on their IDs
-  #outstation {
-    background-color: #007bff; // Blue color for outstation button
-  }
+// Specific styles for each button based on their IDs
+#outstation {
+  background-color: #007bff; // Blue color for outstation button
+}
 
-  #local {
-    background-color: #ffc107; // Yellow color for local button
-  }
+#local {
+  background-color: #ffc107; // Yellow color for local button
+}
 
-  #airport {
-    background-color: #dc3545; // Red color for airport button
-  }
+#airport {
+  background-color: #dc3545; // Red color for airport button
 }
 
 // Form button styles
@@ -366,3 +368,6 @@ form .button {
   margin-top: 10px; // Example additional style for buttons within forms
   // Additional form button styles...
 }
+
+// Assuming existing form styles continue here
+
