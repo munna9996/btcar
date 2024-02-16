@@ -864,9 +864,39 @@ font-family: 'Lobster', cursive;
           backface-visibility: hidden;
   background-position: center;
   background-size: cover;
-  -webkit-animation: fade-in 20s ease-in;
-          animation: fade-in 20s ease
 
+-webkit-animation: fade-in 20s ease-in;
+          animation: fade-in 20s ease-in;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+.wishesFont{
+  font-family: 'Indie Flower', cursive;
+  font-weight: 800;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lineHeight{
+  line-height:0.2em !important; 
+}
 
   
 </style>
