@@ -328,3 +328,35 @@ textarea.form-control {
     }
   }
 }
+
+
+
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+
+  // Additional styles for all buttons...
+
+  // Specific styles for each button based on their IDs
+  #outstation {
+    background-color: #007bff; // Blue color for outstation button
+  }
+
+  #local {
+    background-color: #ffc107; // Yellow color for local button
+  }
+
+  #airport {
+    background-color: #dc3545; // Red color for airport button
+  }
+}
