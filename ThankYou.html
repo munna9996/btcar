@@ -457,7 +457,6 @@ font-family: 'Lobster', cursive;
 }
 
 
-/* Default Styles */
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
@@ -477,7 +476,7 @@ body {
 }
 
 #card, #card-front, #card-inside {
-  height: 580px;
+  height: auto;
 }
 
 .wrap {
@@ -486,11 +485,13 @@ body {
 }
 
 #card-front, #card-inside {
-  width: 50%;
+  width: 80%;
   -webkit-box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 #card-inside .wrap {
@@ -500,14 +501,12 @@ body {
 }
 
 #card {
-  width: 960px;
+  width: 100%;
   margin: auto;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-perspective: 5000px;
           perspective: 5000px;
-  -webkit-transform: translateX(-25%);
-          transform: translateX(-25%);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
@@ -530,7 +529,7 @@ body {
 #card-inside {
   font-size: 1.3em;
   line-height: 1.4;
-  font-family: 'Lobster';
+font-family: 'Lobster';
   color: #331717;
   font-style: italic;
 }
@@ -654,7 +653,7 @@ p.signed {
 footer {
   max-width: 500px;
   margin: 40px auto;
-  font-family: 'Lobster', cursive;
+font-family: 'Lobster', cursive;
   font-size: 14px;
   line-height: 1.6;
   color: #888;
@@ -712,7 +711,8 @@ footer {
   left: 0;
 }
 
-/* Fire */
+/* ============================================== Fire
+*/
 .fuego {
   border-radius: 100%;
   position: absolute;
@@ -748,7 +748,8 @@ footer {
           animation: fuego 0.2s 5.5s infinite;
 }
 
-/* Animation Fire */
+/* ============================================== Animation Fire
+*/
 @-webkit-keyframes fuego {
   0%, 100% {
     background: rgba(254, 248, 97, 0.5);
@@ -864,54 +865,7 @@ footer {
   background-position: center;
   background-size: cover;
   -webkit-animation: fade-in 20s ease-in;
-          animation: fade-in 20s ease-in;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-.wishesFont{
-  font-family: 'Indie Flower', cursive;
-  font-weight: 800;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.lineHeight{
-  line-height:0.2em !important; 
-}
-
-/* Media Queries for Mobile */
-@media only screen and (max-width: 768px) {
-  #card, #card-front, #card-inside {
-    height: auto;
-  }
-  #card-front, #card-inside {
-    width: 80%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  #card {
-    width: 100%;
-  }
-}
-
+          animation: fade-in 20s ease
 
 
   
