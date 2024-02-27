@@ -179,7 +179,7 @@
             carDetails.forEach(function(car, index) {
                 var price = calculatePrice(distance);
                 car.querySelector(".distance").textContent = distance;
-                car.querySelector(".price").textContent = "$" + price.toFixed(11.2);
+                car.querySelector(".price").textContent = "$" + price.toFixed(2);
             });
         };
 
@@ -188,7 +188,7 @@
             var pickupLocation = document.querySelector('.pickup').textContent;
             var dropLocation = document.querySelector('.dropoff').textContent;
             var distance = document.querySelector(".distance").textContent; // Incorrect
-            var price = calculatePrice(parseFloat(distance)).toFixed(11.4);
+            var price = calculatePrice(parseFloat(distance)).toFixed(2);
             var car = carDetails.querySelector(".car").textContent;
 
             // Pass the data to the next page with proper encoding
@@ -201,7 +201,7 @@
             var pickupLocation = document.querySelector('.pickup').textContent;
             var dropLocation = document.querySelector('.dropoff').textContent;
             var distance = document.querySelector(".distance").textContent;
-            var price = calculatePrice(parseFloat(distance)).toFixed(16.2);
+            var price = calculatePrice(parseFloat(distance)).toFixed(2);
 
             // Dynamically update car details modal content
             var car = carDetails.querySelector(".car").textContent;
