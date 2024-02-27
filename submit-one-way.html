@@ -179,7 +179,7 @@
         carDetails.forEach(function(car, index) {
             var price = calculatePrice(distance, index + 1); // Pass car index
             car.querySelector(".distance").textContent = distance;
-            car.querySelector(".price").textContent = "₹" + price.toFixed(2);
+            car.querySelector(".price").textContent = "$" + price.toFixed(2);
         });
     };
 
@@ -220,7 +220,7 @@
             <p>Distance: ${distance}</p>
             <p>Price: ${price}</p>
             <!-- Add additional dynamic content here -->
-            <p></p>
+            <p>Terms & Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         `;
 
         // Show the modal
@@ -235,36 +235,28 @@
     }
 
     // Function to calculate price based on distance and car type
-    // Function to calculate price based on distance and car type
-function calculatePrice(distance, carIndex) {
-    var basePricePerKm;
-    var driverCharge;
-    var minimumCost;
+    function calculatePrice(distance, carIndex) {
+        var basePricePerKm = 0; // Default base price per km
 
-    // Set base price per km, driver charge, and minimum cost based on car type
-// Function to calculate price based on distance and car type
-function calculatePrice(distance, carIndex) {
-    var basePricePerKm;
+        // Set base price per km based on car type
+        switch(carIndex) {
+            case 1:
+                basePricePerKm = 11.2;
+                break;
+            case 2:
+                basePricePerKm = 11.4;
+                break;
+            case 3:
+                basePricePerKm = 16.2;
+                break;
+            default:
+                basePricePerKm = 0;
+        }
 
-    // Set base price per km based on car type
-    switch(carIndex) {
-        case 1:
-            basePricePerKm = 11.2;
-            break;
-        case 2:
-            basePricePerKm = 16.4;
-            break;
-        case 3:
-            basePricePerKm = 20.2;
-            break;
-        default:
-            basePricePerKm = 0; // Default base price per km
+        return distance * basePricePerKm;
     }
+</script>
 
-    return distance * basePricePerKm;
-}
-
-    </script>
 </body>
 </body>
 </html>
