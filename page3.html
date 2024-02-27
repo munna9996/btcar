@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .form-control label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control input[type="text"],
+        .form-control input[type="number"],
+        .form-control input[type="date"],
+        .form-control input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-control button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-control button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Form</h1>
+        <form action="https://sheetdb.io/api/v1/7futym1m32wbq" method="POST" id="bookingForm">
+ 
+            <div class="form-control">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="data[name]" placeholder="Enter your name" required>
+            </div>
+            <div class="form-control">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="data[mobile]" placeholder="Enter your mobile number" required>
+            </div>
+            <div class="form-control">
+                <label for="car">Car Model:</label>
+                <input type="text" id="car" name="data[car]" readonly>
+            </div>
+            <div class="form-control">
+                <label for="pickup">Pickup Location:</label>
+                <input type="text" id="pickup" name="data[pickup]" readonly>
+            </div>
+            <div class="form-control">
+                <label for="pickupDate">Pickup Date:</label>
+                <input type="date" id="pickupDate" name="data[pickupDate]" required>
+            </div>
+            <div class="form-control">
+                <label for="pickupTime">Pickup Time:</label>
+                <input type="time" id="pickupTime" name="data[pickupTime]" required>
+            </div>
+            <div class="form-control">
+                <label for="dropoff">Dropoff Location:</label>
+                <input type="text" id="dropoff" name="data[dropoff]" readonly>
+            </div>
+            <div class="form-control">
+                <label for="dropoffDate">Dropoff Date:</label>
+                <input type="date" id="dropoffDate" name="data[dropoffDate]" required>
+            </div>
+            <div class="form-control">
+                <label for="dropoffTime">Dropoff Time:</label>
+                <input type="time" id="dropoffTime" name="data[dropoffTime]" required>
+            </div>
+            <div class="form-control">
+                <label for="distance">Distance (km):</label>
+                <input type="number" id="distance" name="data[distance]" readonly>
+            </div>
+            <div class="form-control">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="data[price]" readonly>
+            </div>
+            <div class="form-control">
+                <button type="submit">Submit Booking</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Get URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const car = params.get('car');
+            const pickup = params.get('pickup');
+            const dropoff = params.get('dropoff');
+            const distance = params.get('distance');
+            const price = params.get('price');
+            const mobile = params.get('mobile'); // Retrieve mobile number from URL
+
+            // Fill form inputs with URL parameters
+            document.getElementById('car').value = car;
+            document.getElementById('pickup').value = pickup;
+            document.getElementById('dropoff').value = dropoff;
+            document.getElementById('mobile').value = mobile;
+            document.getElementById('distance').value = distance;
+            document.getElementById('price').value = '$' + parseFloat(price).toFixed(2);
+
+            // Set current date as the value of pickup date input field
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            let yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById('pickupDate').value = today;
+
+            // Set current time plus 6 hours as the value of pickup time input field
+            today = new Date();
+            today.setHours(today.getHours() + 6);
+            let hours = String(today.getHours()).padStart(2, '0');
+            let minutes = String(today.getMinutes()).padStart(2, '0');
+            let time = hours + ':' + minutes;
+            document.getElementById('pickupTime').value = time;
+        };
+
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const url = form.action;
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Your booking has been submitted successfully!');
+                    // Optionally, redirect the user to a thank you page or do other actions
+                } else {
+                    throw new Error('Failed to submit form');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again later.');
+            });
+        });
+    </script>
+
+</body>
+</html>
