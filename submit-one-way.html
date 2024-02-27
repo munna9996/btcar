@@ -235,27 +235,49 @@
     }
 
     // Function to calculate price based on distance and car type
-    function calculatePrice(distance, carIndex) {
-        var basePricePerKm = 0; // Default base price per km
+    // Function to calculate price based on distance and car type
+function calculatePrice(distance, carIndex) {
+    var basePricePerKm;
+    var driverCharge;
+    var minimumCost;
 
-        // Set base price per km based on car type
-        switch(carIndex) {
-            case 1:
-                basePricePerKm = 15.5;
-                break;
-            case 2:
-                basePricePerKm = 16.2;
-                break;
-            case 3:
-                basePricePerKm = 20.5;
-                break;
-            default:
-                basePricePerKm = 0;
-        }
-
-        return distance * basePricePerKm;
+    // Set base price per km, driver charge, and minimum cost based on car type
+    switch(carIndex) {
+        case 1:
+            basePricePerKm = 11.2;
+            driverCharge = 20; // Example driver charge for car 1
+            minimumCost = 50; // Example minimum cost for car 1
+            break;
+        case 2:
+            basePricePerKm = 11.4;
+            driverCharge = 25; // Example driver charge for car 2
+            minimumCost = 55; // Example minimum cost for car 2
+            break;
+        case 3:
+            basePricePerKm = 16.2;
+            driverCharge = 30; // Example driver charge for car 3
+            minimumCost = 60; // Example minimum cost for car 3
+            break;
+        default:
+            basePricePerKm = 0; // Default base price per km
+            driverCharge = 0; // Default driver charge
+            minimumCost = 0; // Default minimum cost
     }
-</script>
+
+    var distancePrice = distance * basePricePerKm;
+    var totalPrice;
+
+    // Check if the distance is less than 50 km
+    if (distance < 50) {
+        // Apply driver charge and minimum cost
+        totalPrice = minimumCost + driverCharge;
+    } else {
+        // Calculate price based on distance and add driver charge
+        totalPrice = distancePrice + driverCharge;
+    }
+
+    return totalPrice;
+}
 
 </body>
 </body>
