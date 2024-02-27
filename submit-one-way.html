@@ -158,88 +158,105 @@
     </div>
 
 
-      <script>
-        window.onload = function() {
-            // Get URL parameters
-            const params = new URLSearchParams(window.location.search);
-            const pickup = params.get('pickup');
-            const dropoff = params.get('drop');
-            const distance = parseFloat(params.get('distance')); // Parse distance as a float
+<script>
+    window.onload = function() {
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const pickup = params.get('pickup');
+        const dropoff = params.get('drop');
+        const distance = parseFloat(params.get('distance')); // Parse distance as a float
 
-            // Display pickup and dropoff locations in all car details
-            document.querySelectorAll('.pickup').forEach(function(element) {
-                element.textContent = pickup;
-            });
-            document.querySelectorAll('.dropoff').forEach(function(element) {
-                element.textContent = dropoff;
-            });
+        // Display pickup and dropoff locations in all car details
+        document.querySelectorAll('.pickup').forEach(function(element) {
+            element.textContent = pickup;
+        });
+        document.querySelectorAll('.dropoff').forEach(function(element) {
+            element.textContent = dropoff;
+        });
 
-            // Calculate and display prices for each car based on distance
-            var carDetails = document.querySelectorAll(".car-details");
-            carDetails.forEach(function(car, index) {
-                var price = calculatePrice(distance);
-                car.querySelector(".distance").textContent = distance;
-                car.querySelector(".price").textContent = "$" + price.toFixed(2);
-            });
-        };
+        // Calculate and display prices for each car based on distance
+        var carDetails = document.querySelectorAll(".car-details");
+        carDetails.forEach(function(car, index) {
+            var price = calculatePrice(distance, index + 1); // Pass car index
+            car.querySelector(".distance").textContent = distance;
+            car.querySelector(".price").textContent = "$" + price.toFixed(2);
+        });
+    };
 
-        function bookNow(carIndex) {
-            var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
-            var pickupLocation = document.querySelector('.pickup').textContent;
-            var dropLocation = document.querySelector('.dropoff').textContent;
-            var distance = document.querySelector(".distance").textContent; // Incorrect
-            var price = calculatePrice(parseFloat(distance)).toFixed(2);
-            var car = carDetails.querySelector(".car").textContent;
+    function bookNow(carIndex) {
+        var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
+        var pickupLocation = document.querySelector('.pickup').textContent;
+        var dropLocation = document.querySelector('.dropoff').textContent;
+        var distance = document.querySelector(".distance").textContent; // Incorrect
+        var price = calculatePrice(parseFloat(distance), carIndex).toFixed(2); // Pass car index
+        var car = carDetails.querySelector(".car").textContent;
 
-            // Pass the data to the next page with proper encoding
-            var url = "submit-airport.html?pickup=" + encodeURIComponent(pickupLocation) + "&drop=" + encodeURIComponent(dropLocation) + "&mobile=" + encodeURIComponent("7670969075") + "&distance=" + distance + "&car=" + encodeURIComponent(car);
-            window.location.href = url;
+        // Pass the data to the next page with proper encoding
+        var url = "submit-airport.html?pickup=" + encodeURIComponent(pickupLocation) + "&drop=" + encodeURIComponent(dropLocation) + "&mobile=" + encodeURIComponent("7670969075") + "&distance=" + distance + "&car=" + encodeURIComponent(car) + "&price=" + encodeURIComponent(price); // Add price to URL parameters
+        window.location.href = url;
+    }
+
+    function viewDetails(carIndex) {
+        var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
+        var pickupLocation = document.querySelector('.pickup').textContent;
+        var dropLocation = document.querySelector('.dropoff').textContent;
+        var distance = document.querySelector(".distance").textContent;
+        var price = calculatePrice(parseFloat(distance), carIndex).toFixed(2);
+
+        // Dynamically update car details modal content
+        var car = carDetails.querySelector(".car").textContent;
+        var model = carDetails.querySelector(".car-info p:nth-child(2) span").textContent;
+        var pickup = carDetails.querySelector(".car-info p:nth-child(3) span").textContent;
+        var dropoff = carDetails.querySelector(".car-info p:nth-child(4) span").textContent;
+        var distance = carDetails.querySelector(".car-info p:nth-child(5) span").textContent;
+        var price = carDetails.querySelector(".car-info p:nth-child(6) span").textContent;
+
+        var carDetailsContent = document.getElementById('carDetailsContent');
+        carDetailsContent.innerHTML = `
+            <h2>${car}</h2>
+            <p>Model: ${model}</p>
+            <p>Pickup Location: ${pickup}</p>
+            <p>Drop Location: ${dropoff}</p>
+            <p>Distance: ${distance}</p>
+            <p>Price: ${price}</p>
+            <!-- Add additional dynamic content here -->
+            <p>Terms & Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        `;
+
+        // Show the modal
+        var modal = document.getElementById('carDetailsModal');
+        modal.style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        var modal = document.getElementById('carDetailsModal');
+        modal.style.display = 'none';
+    }
+
+    // Function to calculate price based on distance and car type
+    function calculatePrice(distance, carIndex) {
+        var basePricePerKm = 0; // Default base price per km
+
+        // Set base price per km based on car type
+        switch(carIndex) {
+            case 1:
+                basePricePerKm = 11.2;
+                break;
+            case 2:
+                basePricePerKm = 11.4;
+                break;
+            case 3:
+                basePricePerKm = 16.2;
+                break;
+            default:
+                basePricePerKm = 0;
         }
 
-        function viewDetails(carIndex) {
-            var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
-            var pickupLocation = document.querySelector('.pickup').textContent;
-            var dropLocation = document.querySelector('.dropoff').textContent;
-            var distance = document.querySelector(".distance").textContent;
-            var price = calculatePrice(parseFloat(distance)).toFixed(2);
+        return distance * basePricePerKm;
+    }
+</script>
 
-            // Dynamically update car details modal content
-            var car = carDetails.querySelector(".car").textContent;
-            var model = carDetails.querySelector(".car-info p:nth-child(2) span").textContent;
-            var pickup = carDetails.querySelector(".car-info p:nth-child(3) span").textContent;
-            var dropoff = carDetails.querySelector(".car-info p:nth-child(4) span").textContent;
-            var distance = carDetails.querySelector(".car-info p:nth-child(5) span").textContent;
-            var price = carDetails.querySelector(".car-info p:nth-child(6) span").textContent;
-
-            var carDetailsContent = document.getElementById('carDetailsContent');
-            carDetailsContent.innerHTML = `
-                <h2>${car}</h2>
-                <p>Model: ${model}</p>
-                <p>Pickup Location: ${pickup}</p>
-                <p>Drop Location: ${dropoff}</p>
-                <p>Distance: ${distance}</p>
-                <p>Price: ${price}</p>
-                <!-- Add additional dynamic content here -->
-                <p>Terms & Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            `;
-
-            // Show the modal
-            var modal = document.getElementById('carDetailsModal');
-            modal.style.display = 'block';
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            var modal = document.getElementById('carDetailsModal');
-            modal.style.display = 'none';
-        }
-
-        // Function to calculate price based on distance
-        function calculatePrice(distance) {
-            var basePricePerKm = 2; // $2 per km
-            return distance * basePricePerKm;
-        }
-    </script>
 </body>
 </body>
 </html>
