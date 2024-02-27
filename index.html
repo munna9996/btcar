@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,6 +26,21 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+<style>.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+
+
+
+  label {
+    color: white;
+  }
+</style>
 
 	  
   </head>
@@ -52,7 +68,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bgl_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -74,52 +90,138 @@
       </div>
     </div>
 
-     <section class="ftco-section ftco-no-pt bg-light">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-md-12	featured-top">
-    				<div class="row no-gutters">
-	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="https://sheetdb.io/api/v1/7futym1m32wbq" method="POST" id="sheetdb-form" class="request-form ftco-animate bg-primary">
-		          		<h2>Make your trip</h2>
-			    			    <div class="form-group">
-			    					<label for="" class="label">Pick-up location</label>
-			    					<input type="text" class="form-control"  id="Pick_up_location" name="data[Pick_up_location]" placeholder="City, Airport, Station, etc" required>
-			    				</div>
-			    				<div class="form-group">
-			    					<label for="" class="label">Drop-off location</label>
-			    					<input type="text" class="form-control" id="Drop_off_location" name="data[Drop_off_location]" placeholder="City, Airport, Station, etc" required>
-			    				</div>
-								<div class="form-group">
-    <label for="name" class="label">Name</label>
-    <input type="text" class="form-control" id="name" name="data[name]" placeholder="Your Name" required>
-</div>
+<section class="ftco-section ftco-no-pt bg-light">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="col-md-12 featured-top">
+        <div class="row no-gutters">
+          <div class="col-md-6 d-flex align-items-center">
+<form action="your_action_endpoint_here" method="POST" id="sheetdb-form" class="request-form ftco-animate bg-primary">
+<h2>Make your trip</h2>
+          <div class="container">
+            <div class="buttons-container">
+              <button type="button" id="one-way-btn" class="btn btn-dark">One Way</button>
+              <button type="button" id="round-trip-btn" class="btn btn-success">Round Trip</button>
+              <button type="button" id="local-btn" class="btn btn-warning">Local</button>
+              <button type="button" id="airport-btn" class="btn btn-light">Airport</button>
 
-<div class="form-group">
-    <label for="mobile" class="label">Mobile Number</label>
-    <input type="tel" class="form-control" id="mobile" name="data[mobile]" placeholder="Your Mobile Number" required>
-</div>
+        </form>
+        <form class="form" id="one-way-form" action="/submit-one-way">
+          <h2>One Way</h2>
+          <div class="form-group">
+            <label for="pickup-location">Pickup Location</label>
+            <input type="text" class="form-control" id="pickup-location" name="pickup-location" placeholder="Enter pickup location" required>
+          </div>
+          <div class="form-group">
+            <label for="drop-location">Drop Location</label>
+            <input type="text" class="form-control" id="drop-location" name="drop-location" placeholder="Enter drop location" required>
+          </div>
+          <div class="form-group">
+            <label for="pickup-date">Pickup Date</label>
+            <input type="date" class="form-control" id="pickup-date" name="pickup-date" required>
+          </div>
+          <div class="form-group">
+            <label for="pickup-time">Pickup Time</label>
+            <input type="time" class="form-control" id="pickup-time" name="pickup-time" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile-number">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile-number" name="mobile-number" placeholder="Enter mobile number" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-warning">Explore Cabs</button>
+          </div>
+        </form>
+        <form class="form" id="round-trip-form" action="/submit-round-trip">
+          <h2>Round Trip</h2>
+          <div class="form-group">
+            <label for="pickup-location-round-trip">Pickup Location</label>
+            <input type="text" class="form-control" id="pickup-location-round-trip" name="pickup-location-round-trip" placeholder="Enter pickup location">
+          </div>
+          <div class="form-group">
+            <label for="drop-location-round-trip">Drop Location</label>
+            <input type="text" class="form-control" id="drop-location-round-trip" name="drop-location-round-trip" placeholder="Enter drop location">
+          </div>
+          <div class="form-group">
+            <label for="pickup-date-round">Pickup Date</label>
+            <input type="date" class="form-control" id="pickup-date-round" name="pickup-date-round">
+          </div>
+          <div class="form-group">
+            <label for="return-date">Return Date</label>
+            <input type="date" class="form-control" id="return-date" name="return-date">
+          </div>
+          <div class="form-group">
+            <label for="pickup-time-round">Pickup Time</label>
+            <input type="time" class="form-control" id="pickup-time-round" name="pickup-time-round">
+          </div>
+          <div class="form-group">
+            <label for="mobile-number">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile-number-round" name="mobile-number-round" placeholder="Enter mobile number">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-warning">Explore Cabs</button>
+          </div>
+        </form>
+        <form class="form" id="local-form" action="/submit-local">
+  <h2>Local</h2>
+  <div class="form-group">
+    <label for="pickup-location-local">Pickup Location</label>
+    <input type="text" class="form-control" id="pickup-location-local" name="pickup-location-local" placeholder="Enter pickup location">
+  </div>
+  <div class="form-group">
+    <label for="pickup-drop-location-local">Pickup-Drop Location</label>
+    <input type="text" class="form-control" id="pickup-drop-location-local" name="pickup-drop-location-local" placeholder="Enter pickup-drop location">
+  </div>
+  <div class="form-group">
+    <label for="pickup-time-local">Pickup Time</label>
+    <input type="time" class="form-control" id="pickup-time-local" name="pickup-time-local">
+  </div>
+  <div class="form-group">
+    <label for="mobile-number-local">Mobile Number</label>
+    <input type="tel" class="form-control" id="mobile-number-local" name="mobile-number-local" placeholder="Enter mobile number">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-warning">Explore Cabs</button>
+  </div>
+</form>
+        <form class="form" id="airport-form" action="/submit-airport">
+          <h2>Airport</h2>
+          <div class="form-group">
+            <label for="trip-type">Trip Type</label>
+            <select id="trip-type" class="form-control" name="trip-type">
+              <option value="departure">Departure</option>
+              <option value="arrival">Arrival</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pickup-address-airport">Pickup Address</label>
+            <input type="text" class="form-control" id="pickup-address-airport" name="pickup-address-airport" placeholder="Enter pickup address">
+          </div>
+          <div class="form-group">
+            <label for="drop-airport">Drop Airport</label>
+            <input type="text" class="form-control" id="drop-airport" name="drop-airport" placeholder="Enter drop airport">
+          </div>
+          <div class="form-group">
+            <label for="pickup-date-airport">Pickup Date</label>
+            <input type="date" class="form-control" id="pickup-date-airport" name="pickup-date-airport">
+          </div>
+          <div class="form-group">
+            <label for="pickup-time-airport">Pickup Time</label>
+            <input type="time" class="form-control" id="pickup-time-airport" name="pickup-time-airport">
+          </div>
+          <div class="form-group">
+            <label for="mobile-number">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile-number-airport" name="mobile-number-airport" placeholder="Enter mobile number">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-warning">Explore Cabs</button>
+          </div>
+        </form>
+     </div>
+    </div>
+    </div>
 
-			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label for="" class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="book_pick_date" name="data[book_pick_date]" placeholder="Date" required>
-			              </div>
-			              <div class="form-group ml-2">
-			                <label for="" class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="book_off_date" name="data[book_off_date]" placeholder="Date" required>
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="" class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="time_pick" name="data[time_pick] placeholder="Time" required>
-		              </div>
-			            <div class="form-group">
-			              <input type="submit" value="Book a Cab Now" class="btn btn-secondary py-3 px-4">
-			            </div>
-			    			</form>
-	  					</div>
-	  					<div class="col-md-8 d-flex align-items-center">
+                                          <div class="col-md-6 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
 	  							<h3 class="heading-section mb-4">Better Way to Book Your Perfect Cars</h3>
 	  							<div class="row d-flex mb-4">
@@ -148,13 +250,13 @@
 					            </div>      
 					          </div>
 					        </div>
-					        <p><a href="#" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
+					        <p><a href="#" class="btn btn-primary py-3 px-4">Book Your Perfect Car</a></p>
 	  						</div>
 	  					</div>
 	  				</div>
 				</div>
-  		</div>
-    </section>
+  		</div>     
+</section>
 
 
     <section class="ftco-section ftco-no-pt bg-light">
@@ -536,7 +638,7 @@
           <div class="col-md-12 text-center">
 
             <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Vmr carrental <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://vmrcarrental.com" target="_blank">vmrcarrental</a> </p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Vmr carrental <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://vmrcarrental.com" target="_blank">Shaik Mahaboob Basha</a> </p>
           </div>
         </div>
       </div>
@@ -562,43 +664,159 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhoVETovC61CoqLaMCiSglPLzfz4JnQXE&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmnaEALc59hQlwhPGJmG46X141ZDL930I&libraries=places"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   
   <script>
-            var form = document.getElementById('sheetdb-form');
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          fetch(form.action, {
-              method : "POST",
-              body: new FormData(document.getElementById("sheetdb-form")),
-          }).then(
-              response => response.json()
-          ).then((html) => {
-            // you can put any JS code here
-            window.open('https://www.vmrcarrental.com/ThankYou.html', '_blank');
+ document.addEventListener('DOMContentLoaded', function () {
+      const oneWayBtn = document.getElementById('one-way-btn');
+      const roundTripBtn = document.getElementById('round-trip-btn');
+      const localBtn = document.getElementById('local-btn');
+      const airportBtn = document.getElementById('airport-btn');
+      const oneWayForm = document.getElementById('one-way-form');
+      const roundTripForm = document.getElementById('round-trip-form');
+      const localForm = document.getElementById('local-form');
+      const airportForm = document.getElementById('airport-form');
 
-          });
-        });
-        </script>  
+      oneWayBtn.addEventListener('click', function () {
+        oneWayForm.style.display = 'block';
+        roundTripForm.style.display = 'none';
+        localForm.style.display = 'none';
+        airportForm.style.display = 'none';
+      });
 
-	  <script>
-function initAutocomplete() {
-  var pickUpInput = document.getElementById('Pick_up_location');
-  var dropOffInput = document.getElementById('Drop_off_location');
+      roundTripBtn.addEventListener('click', function () {
+        oneWayForm.style.display = 'none';
+        roundTripForm.style.display = 'block';
+        localForm.style.display = 'none';
+        airportForm.style.display = 'none';
+      });
 
-  var options = {
-    types: ['geocode'] // Restrict autocomplete results to geographical locations
+      localBtn.addEventListener('click', function () {
+        oneWayForm.style.display = 'none';
+        roundTripForm.style.display = 'none';
+        localForm.style.display = 'block';
+        airportForm.style.display = 'none';
+      });
+
+      airportBtn.addEventListener('click', function () {
+        oneWayForm.style.display = 'none';
+        roundTripForm.style.display = 'none';
+        localForm.style.display = 'none';
+        airportForm.style.display = 'block';
+      });
+
+      // Show One Way form by default
+      oneWayBtn.click();
+    });
+
+// Function to calculate distance using Google Maps Distance Matrix API and redirect to the specified URL
+function calculateDistance(pickupLocation, dropLocation, mobileNumber, nextPageUrl, isRoundTrip) {
+  var service = new google.maps.DistanceMatrixService();
+  var request = {
+    origins: [pickupLocation],
+    destinations: [dropLocation],
+    travelMode: 'DRIVING',
+    unitSystem: google.maps.UnitSystem.METRIC
   };
+  service.getDistanceMatrix(request, function(response, status) {
+    if (status == 'OK') {
+      var distance = response.rows[0].elements[0].distance.text;
+      var duration = response.rows[0].elements[0].duration.text;
 
-  var pickUpAutocomplete = new google.maps.places.Autocomplete(pickUpInput, options);
-  var dropOffAutocomplete = new google.maps.places.Autocomplete(dropOffInput, options);
+      // Double the distance if it's a round trip
+      if (isRoundTrip) {
+        distance = (parseFloat(distance) * 2).toFixed(2) + ' km';
+      }
+
+      // Redirect to the next page with all parameters including distance
+      var nextPageUrlWithParams = nextPageUrl +'?pickup=' + encodeURIComponent(pickupLocation) + '&drop=' + encodeURIComponent(dropLocation) + '&mobile=' + mobileNumber + '&distance=' + distance;
+      window.location.href = nextPageUrlWithParams; // Redirect to the next page
+    } else {
+      console.error('Error fetching distance: ' + status);
+    }
+  });
 }
 
-// Call the initAutocomplete function when the page loads
-google.maps.event.addDomListener(window, 'load', initAutocomplete);
-</script>
+// Event listener for form submission Roundtrip
+document.getElementById('round-trip-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  // Retrieve values from the form fields
+  var pickupLocation = document.getElementById('pickup-location-round-trip').value; // Corrected ID
+  var dropLocation = document.getElementById('drop-location-round-trip').value; // Corrected ID
+  var mobileNumber = document.getElementById('mobile-number').value; // Corrected ID
+  // Call the function to calculate distance and redirect to the specified URL
+  calculateDistance(pickupLocation, dropLocation, mobileNumber, 'submit-round-trip.html', true);
+});
+// Event listener for form submission One Way
+document.getElementById('one-way-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  // Retrieve values from the form fields
+  var pickupLocation = document.getElementById('pickup-location').value;
+  var dropLocation = document.getElementById('drop-location').value;
+  var mobileNumber = document.getElementById('mobile-number').value; // corrected ID
+  // Call the function to calculate distance and redirect to the specified URL
+  calculateDistance(pickupLocation, dropLocation, mobileNumber, 'submit-one-way.html');
+});
 
+// Event listener for form submission Local
+document.getElementById('local-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  // Retrieve values from the form fields
+  var pickupLocation = document.getElementById('pickup-location-local').value; // Corrected ID
+  var dropLocation = document.getElementById('pickup-drop-location-local').value; // Corrected ID
+  var mobileNumber = document.getElementById('mobile-number').value; // Corrected ID
+  // Call the function to calculate distance and redirect to the specified URL
+  calculateDistance(pickupLocation, dropLocation, mobileNumber, 'submit-local.html');
+});
+
+// Event listener for form submission Airport
+document.getElementById('airport-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  // Retrieve values from the form fields
+  var pickupLocation = document.getElementById('pickup-address-airport').value; // Corrected ID
+  var dropLocation = document.getElementById('drop-airport').value; // Corrected ID
+  var mobileNumber = document.getElementById('mobile-number').value; // Corrected ID
+  // Call the function to calculate distance and redirect to the specified URL
+  calculateDistance(pickupLocation, dropLocation, mobileNumber, 'submit-airport.html');
+});
+
+
+
+
+
+// Load the Google Places Autocomplete API
+function initAutocomplete() {
+    // Initialize Autocomplete for pickup and drop location input fields in One Way form
+    var pickupInputOneWay = document.getElementById('pickup-location');
+    var dropInputOneWay = document.getElementById('drop-location');
+    var options = {
+        componentRestrictions: { country: 'in' } // Restrict to India
+    };
+    var pickupAutocompleteOneWay = new google.maps.places.Autocomplete(pickupInputOneWay, options);
+    var dropAutocompleteOneWay = new google.maps.places.Autocomplete(dropInputOneWay, options);
+
+    // Initialize Autocomplete for pickup and drop location input fields in Round Trip form
+    var pickupInputRoundTrip = document.getElementById('pickup-location-round-trip');
+    var dropInputRoundTrip = document.getElementById('drop-location-round-trip');
+    var pickupAutocompleteRoundTrip = new google.maps.places.Autocomplete(pickupInputRoundTrip, options);
+    var dropAutocompleteRoundTrip = new google.maps.places.Autocomplete(dropInputRoundTrip, options);
+
+    // Initialize Autocomplete for pickup and drop location input fields in Local form
+    var pickupInputLocal = document.getElementById('pickup-location-local');
+    var dropInputLocal = document.getElementById('pickup-drop-location-local');
+    var pickupAutocompleteLocal = new google.maps.places.Autocomplete(pickupInputLocal, options);
+    var dropAutocompleteLocal = new google.maps.places.Autocomplete(dropInputLocal, options);
+
+    // Initialize Autocomplete for pickup address input field in Airport form
+    var pickupInputAirport = document.getElementById('pickup-address-airport');
+    var dropInputAirport = document.getElementById('drop-airport');
+    var pickupAutocompleteAirport = new google.maps.places.Autocomplete(pickupInputAirport, options);
+    var dropAutocompleteAirport = new google.maps.places.Autocomplete(dropInputAirport, options);
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmnaEALc59hQlwhPGJmG46X141ZDL930I&libraries=places&callback=initAutocomplete" async defer></script>
   </body>
 </html>
