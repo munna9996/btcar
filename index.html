@@ -100,15 +100,19 @@
 <h2>Make your trip</h2>
           <div class="container">
             <div class="buttons-container">
+		 <div class="row">
 	        <div class="col">    
                     <button type="button" id="one-way-btn" class="btn btn-dark">One Way</button>
 		 </div>
+		 <div class="col">  
               <button type="button" id="round-trip-btn" class="btn btn-success">Round Trip</button>
+		</div>
 	          <div class="col">
                        <button type="button" id="local-btn" class="btn btn-warning">Local</button>
 		   </div>
-                    <button type="button" id="airport-btn" class="btn btn-light">Airport</button>
-               
+		       <div class="col">  
+                              <button type="button" id="airport-btn" class="btn btn-light">Airport</button>
+                       </div>
         </form>
         <form class="form" id="one-way-form" action="/submit-one-way">
           <h2>One Way</h2>
