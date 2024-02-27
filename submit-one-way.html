@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .car-details {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+        .car-details:hover {
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .car-details img {
+            max-width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .car-details:hover img {
+            transform: scale(1.1);
+        }
+        .car-info {
+            padding: 20px;
+        }
+        .car-info h2 {
+            margin-top: 0;
+        }
+        .car-info p {
+            margin: 5px 0;
+        }
+        .car-info button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .car-info button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+     
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Choose Your Ride</h1>
+        
+        <!-- Modal -->
+        <div id="carDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="carDetailsContent"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Car 1 -->
+            <div class="col-md-4">
+                <div class="car-details">
+                    <img src="file:///C:/Users/admin/Desktop/hatchback.png" class="img-fluid" alt="Mercedes Grand Sedan">
+                    <div class="car-info">
+                        <h2>HATCHBACK (AC)</h2>
+                        <p>Model: <span class="car">Swift, WagonR or Similar</span></p>
+                        <p>Pickup Location: <span class="pickup"></span></p>
+                        <p>Drop Location: <span class="dropoff"></span></p>
+                        <p>Distance: <span class="distance"></span> km</p>
+                        <p>Price: <span class="price"></span></p>
+                        <button onclick="bookNow(1)" class="btn">Book Now</button>
+                        <button onclick="viewDetails(1)" class="btn btn-outline-primary">Car Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 2 -->
+            <div class="col-md-4">
+                <div class="car-details">
+                    <img src="file:///C:/Users/admin/Desktop/sedan.png" class="img-fluid" alt="Toyota Camry">
+                    <div class="car-info">
+                        <h2>SEDAN (AC)</h2>
+                        <p>Model: <span class="car">Dzire, Etios or Similar</span></p>
+                        <p>Pickup Location: <span class="pickup"></span></p>
+                        <p>Drop Location: <span class="dropoff"></span></p>
+                        <p>Distance: <span class="distance"></span> km</p>
+                        <p>Price: <span class="price"></span></p>
+                        <button onclick="bookNow(2)" class="btn">Book Now</button>
+                        <button onclick="viewDetails(2)" class="btn btn-outline-primary">Car Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 3 -->
+            <div class="col-md-4">
+                <div class="car-details">
+                    <img src="file:///C:/Users/admin/Desktop/suv.png" class="img-fluid" alt="Audi A4">
+                    <div class="car-info">
+                        <h2>SUV (AC)</h2>
+                        <p>Model: <span class="car">Innova, Ertiga, Marazzo or Similar</span></p>
+                        <p>Pickup Location: <span class="pickup"></span></p>
+                        <p>Drop Location: <span class="dropoff"></span></p>
+                        <p>Distance: <span class="distance"></span> km</p>
+                        <p>Price: <span class="price"></span></p>
+                        <button onclick="bookNow(3)" class="btn">Book Now</button>
+                        <button onclick="viewDetails(3)" class="btn btn-outline-primary">Car Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      <script>
+        window.onload = function() {
+            // Get URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const pickup = params.get('pickup');
+            const dropoff = params.get('drop');
+            const distance = parseFloat(params.get('distance')); // Parse distance as a float
+
+            // Display pickup and dropoff locations in all car details
+            document.querySelectorAll('.pickup').forEach(function(element) {
+                element.textContent = pickup;
+            });
+            document.querySelectorAll('.dropoff').forEach(function(element) {
+                element.textContent = dropoff;
+            });
+
+            // Calculate and display prices for each car based on distance
+            var carDetails = document.querySelectorAll(".car-details");
+            carDetails.forEach(function(car, index) {
+                var price = calculatePrice(distance);
+                car.querySelector(".distance").textContent = distance;
+                car.querySelector(".price").textContent = "$" + price.toFixed(2);
+            });
+        };
+
+        function bookNow(carIndex) {
+            var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
+            var pickupLocation = document.querySelector('.pickup').textContent;
+            var dropLocation = document.querySelector('.dropoff').textContent;
+            var distance = document.querySelector(".distance").textContent; // Incorrect
+            var price = calculatePrice(parseFloat(distance)).toFixed(2);
+            var car = carDetails.querySelector(".car").textContent;
+
+            // Pass the data to the next page with proper encoding
+            var url = "submit-airport.html?pickup=" + encodeURIComponent(pickupLocation) + "&drop=" + encodeURIComponent(dropLocation) + "&mobile=" + encodeURIComponent("7670969075") + "&distance=" + distance + "&car=" + encodeURIComponent(car);
+            window.location.href = url;
+        }
+
+        function viewDetails(carIndex) {
+            var carDetails = document.querySelectorAll(".car-details")[carIndex - 1];
+            var pickupLocation = document.querySelector('.pickup').textContent;
+            var dropLocation = document.querySelector('.dropoff').textContent;
+            var distance = document.querySelector(".distance").textContent;
+            var price = calculatePrice(parseFloat(distance)).toFixed(2);
+
+            // Dynamically update car details modal content
+            var car = carDetails.querySelector(".car").textContent;
+            var model = carDetails.querySelector(".car-info p:nth-child(2) span").textContent;
+            var pickup = carDetails.querySelector(".car-info p:nth-child(3) span").textContent;
+            var dropoff = carDetails.querySelector(".car-info p:nth-child(4) span").textContent;
+            var distance = carDetails.querySelector(".car-info p:nth-child(5) span").textContent;
+            var price = carDetails.querySelector(".car-info p:nth-child(6) span").textContent;
+
+            var carDetailsContent = document.getElementById('carDetailsContent');
+            carDetailsContent.innerHTML = `
+                <h2>${car}</h2>
+                <p>Model: ${model}</p>
+                <p>Pickup Location: ${pickup}</p>
+                <p>Drop Location: ${dropoff}</p>
+                <p>Distance: ${distance}</p>
+                <p>Price: ${price}</p>
+                <!-- Add additional dynamic content here -->
+                <p>Terms & Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            `;
+
+            // Show the modal
+            var modal = document.getElementById('carDetailsModal');
+            modal.style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById('carDetailsModal');
+            modal.style.display = 'none';
+        }
+
+        // Function to calculate price based on distance
+        function calculatePrice(distance) {
+            var basePricePerKm = 2; // $2 per km
+            return distance * basePricePerKm;
+        }
+    </script>
+</body>
+</body>
+</html>
