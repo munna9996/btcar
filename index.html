@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -98,20 +100,25 @@
           <div class="col-md-6 d-flex align-items-center">
 <form action="your_action_endpoint_here" method="POST" id="sheetdb-form" class="request-form ftco-animate bg-primary">
 <h2>Make your trip</h2>
+<div>
           <div class="container">
-            <div class="buttons-container">
-		 
+            <div class="buttons-container ">
+             
+		 <div class="container btn-group">
 	       
-                    <button type="button" id="one-way-btn" class="btn btn-dark">One Way</button>
+                    <button type="button" id="one-way-btn" class="btn btn-dark ">One Way</button>
 		
 		
               <button type="button" id="round-trip-btn" class="btn btn-success">Round Trip</button>
-		
-	       
-                       <button type="button" id="local-btn" class="btn btn-warning">Local</button>
+ </div>
+</div>	
+           <div class="container btn-group">
+                        <button type="button" id="local-btn" class="btn btn-warning">Local</button>
 		 
 		   
-                              <button type="button" id="airport-btn" class="btn btn-light">Airport</button>
+                              <button type="button" id="airport-btn" class="btn btn-light ">Airport</button>
+	       
+                       </div>
                    
         </form>
         <form class="form" id="one-way-form" action="/submit-one-way">
