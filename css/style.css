@@ -9973,6 +9973,27 @@ textarea.form-control {
     border-radius: 10px; /* Rounded corners */
   }
 
+.btn-card {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 20px;
+    background-color: #007bff; /* Same background color for all buttons */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-card.selected {
+    background-color: #ffffff; /* Change background color of selected button to white */
+    color: #007bff; /* Change text color of selected button */
+  }
+
+
+
+
+
+
   /* Style for airport form */
   #airport-form {
     background-color: #f8d7da; /* Light red background */
