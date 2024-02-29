@@ -9946,3 +9946,38 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+  /* Style for one-way form */
+  #one-way-form {
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333; /* Dark text color */
+    border: 2px solid #ffa500; /* Orange border */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  /* Style for round-trip form */
+  #round-trip-form {
+    background-color: #cfe8f3; /* Light blue background */
+    color: #333; /* Dark text color */
+    border: 2px solid #4682b4; /* Steel blue border */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  /* Style for local form */
+  #local-form {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text color */
+    border: 2px solid #28a745; /* Success green border */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  /* Style for airport form */
+  #airport-form {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    border: 2px solid #dc3545; /* Danger red border */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+  }
