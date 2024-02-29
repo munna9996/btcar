@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,6 +32,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
   </head>
   <body>
   
@@ -78,58 +81,55 @@
       </div>
     </div>
 
-
 <div class="container">
   <div class="row">
     <div class="col-6 col-md-3">
-      <button type="button" id="one-way-btn" class="btn-card btn-dark btn-lg btn-block mb-4"><i class="fas fa-plane-departure"></i> One Way</button>
+      <button type="button" id="one-way-btn" class="btn-card btn-lg btn-block mb-4"><i class="fas fa-plane-departure"></i> One Way</button>
     </div>
     <div class="col-6 col-md-3">
-      <button type="button" id="round-trip-btn" class="btn-card btn-success btn-lg btn-block mb-4"><i class="fas fa-exchange-alt"></i> Round Trip</button>
+      <button type="button" id="round-trip-btn" class="btn-card btn-lg btn-block mb-4"><i class="fas fa-exchange-alt"></i> Round Trip</button>
     </div>
     <div class="col-6 col-md-3">
-      <button type="button" id="local-btn" class="btn-card btn-warning btn-lg btn-block mb-4"><i class="fas fa-map-marker-alt"></i> Local</button>
+      <button type="button" id="local-btn" class="btn-card btn-lg btn-block mb-4"><i class="fas fa-map-marker-alt"></i> Local</button>
     </div>
     <div class="col-6 col-md-3">
-      <button type="button" id="airport-btn" class="btn-card btn-light btn-lg btn-block mb-4"><i class="fas fa-plane"></i> Airport</button>
+      <button type="button" id="airport-btn" class="btn-card btn-lg btn-block mb-4"><i class="fas fa-plane"></i> Airport</button>
     </div>
   </div>
 </div>
 
+
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <form class="form" id="one-way-form" action="/submit-one-way">
             <h2 class="card-title">One Way</h2>
             <div class="form-group">
-  <label for="pickup-location">Pickup Location</label>
-<div class="form-group">
-  <label for="pickup-location">Location</label>
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
-    </button>
-    <input type="text" class="form-control" id="pickup-location" name="pickup-location" placeholder="Enter pickup location" required>
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location', 'drop-location')">
-      <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
-    </button>
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <input type="text" class="form-control" id="drop-location" name="drop-location" placeholder="Enter drop location" required>
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
-    </button>
-  </div>
-</div>
-
+              <label for="pickup-location">Pickup Location</label>
+              <div class="input-group">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+                </button>
+               <input type="text" class="form-control"id="pickup-location" name="pickup-location" placeholder="Enter pickup location">
+                 <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+                </button> 
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="drop-location">Drop Location</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="drop-location" name="drop-location" placeholder="Enter drop location" required>
+                
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location', 'drop-location')">
+                <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+              </button>
+            </div>
             <div class="form-group">
               <label for="pickup-date">Pickup Date</label>
               <input type="date" class="form-control" id="pickup-date" name="pickup-date" required>
@@ -142,7 +142,7 @@
               <label for="mobile-number">Mobile Number</label>
               <input type="tel" class="form-control" id="mobile-number" name="mobile-number" placeholder="Enter mobile number" required>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
               <button type="submit" class="btn btn-warning">Explore Cabs</button>
             </div>
           </form>
@@ -154,38 +154,36 @@
 
 
 
-
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <form class="form" id="round-trip-form" action="/submit-round-trip">
             <h2 class="card-title">Round Trip</h2>
             <div class="form-group">
-  <label for="pickup-location-round-trip">Location</label>
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
-    </button>
-    <input type="text" class="form-control" id="pickup-location-round-trip" name="pickup-location-round-trip" placeholder="Enter pickup location">
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-round-trip', 'drop-location-round-trip')">
-      <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
-    </button>
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <input type="text" class="form-control" id="drop-location-round-trip" name="drop-location-round-trip" placeholder="Enter drop location">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
-    </button>
-  </div>
-</div>
+              <label for="pickup-location-round-trip">Pickup Location</label>
+              <div class="input-group">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+                </button>
+                <input type="text" class="form-control" id="pickup-location-round-trip" name="pickup-location-round-trip" placeholder="Enter pickup location">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="drop-location-round-trip">Drop Location</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="drop-location-round-trip" name="drop-location-round-trip" placeholder="Enter drop location">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-round-trip', 'drop-location-round-trip')">
+                <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+              </button>
+            </div>
             <div class="form-group">
               <label for="pickup-date-round">Pickup Date</label>
               <input type="date" class="form-control" id="pickup-date-round" name="pickup-date-round">
@@ -202,7 +200,7 @@
               <label for="mobile-number-round">Mobile Number</label>
               <input type="tel" class="form-control" id="mobile-number-round" name="mobile-number-round" placeholder="Enter mobile number">
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
               <button type="submit" class="btn btn-warning">Explore Cabs</button>
             </div>
           </form>
@@ -217,41 +215,40 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <form class="form" id="local-form" action="/submit-local">
             <h2 class="card-title">Local</h2>
-           <div class="form-group">
-  <label for="pickup-location-local">Location</label>
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
-    </button>
-    <input type="text" class="form-control" id="pickup-location-local" name="pickup-location-local" placeholder="Enter pickup location">
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-local', 'pickup-drop-location-local')">
-      <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
-    </button>
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <input type="text" class="form-control" id="pickup-drop-location-local" name="pickup-drop-location-local" placeholder="Enter pickup-drop location">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
-    </button>
-  </div>
-</div>
+            <div class="form-group">
+              <label for="pickup-location-local">Pickup Location</label>
+              <div class="input-group">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+                </button>
+                <input type="text" class="form-control" id="pickup-location-local" name="pickup-location-local" placeholder="Enter pickup location">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pickup-drop-location-local">Pickup-Drop Location</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="pickup-drop-location-local" name="pickup-drop-location-local" placeholder="Enter pickup-drop location">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-local', 'pickup-drop-location-local')">
+                <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+              </button>
+            </div>
             <div class="form-group">
               <label for="mobile-number-local">Mobile Number</label>
               <input type="tel" class="form-control" id="mobile-number-local" name="mobile-number-local" placeholder="Enter mobile number">
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
               <button type="submit" class="btn btn-warning">Explore Cabs</button>
             </div>
           </form>
@@ -265,43 +262,42 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <form class="form" id="airport-form" action="/submit-airport">
             <h2 class="card-title">Airport</h2>
-<div class="form-group">
-  <label for="trip-type">Trip Type</label>
-  <select id="trip-type" class="form-control" name="trip-type">
-    <option value="departure">Departure</option>
-    <option value="arrival">Arrival</option>
-  </select>
-</div>
-<div class="form-group">
-  <label for="pickup-address-airport">Location</label>
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
-    </button>
-    <input type="text" class="form-control" id="pickup-address-airport" name="pickup-address-airport" placeholder="Enter pickup address">
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-address-airport', 'drop-airport')">
-      <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
-    </button>
-  </div>
-</div>
-<div class="form-group">
-  <div class="input-group">
-    <input type="text" class="form-control" id="drop-airport" name="drop-airport" placeholder="Enter drop airport">
-    <button class="btn btn-secondary" type="button">
-      <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
-    </button>
-  </div>
-</div>
+            <div class="form-group">
+              <label for="trip-type">Trip Type</label>
+              <select id="trip-type" class="form-control" name="trip-type">
+                <option value="departure">Departure</option>
+                <option value="arrival">Arrival</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pickup-address-airport">Pickup Location</label>
+              <div class="input-group">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+                </button>
+                <input type="text" class="form-control" id="pickup-address-airport" name="pickup-address-airport" placeholder="Enter pickup address">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="drop-airport">Drop Airport</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="drop-airport" name="drop-airport" placeholder="Enter drop airport">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-address-airport', 'drop-airport')">
+                <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+              </button>
+            </div>
             <div class="form-group">
               <label for="pickup-date-airport">Pickup Date</label>
               <input type="date" class="form-control" id="pickup-date-airport" name="pickup-date-airport">
@@ -314,7 +310,7 @@
               <label for="mobile-number-airport">Mobile Number</label>
               <input type="tel" class="form-control" id="mobile-number-airport" name="mobile-number-airport" placeholder="Enter mobile number">
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
               <button type="submit" class="btn btn-warning">Explore Cabs</button>
             </div>
           </form>
@@ -888,7 +884,63 @@ function initAutocomplete() {
     var dropAutocompleteAirport = new google.maps.places.Autocomplete(dropInputAirport, options);
 }
 
+ function handleButtonClick(event) {
+    // Remove the 'selected' class from all buttons
+    document.querySelectorAll('.btn-card').forEach(function(button) {
+      button.classList.remove('selected');
+    });
+    // Add the 'selected' class to the clicked button
+    event.target.classList.add('selected');
+  }
+
+  // Add click event listeners to all buttons
+  document.querySelectorAll('.btn-card').forEach(function(button) {
+    button.addEventListener('click', handleButtonClick);
+  });
+
+
+
+//// Function to adjust form layout based on screen size
+// Function to adjust form layout based on screen size
+function adjustFormLayout(formId) {
+  var screenWidth = window.innerWidth;
+  var form = document.getElementById(formId);
+
+  if (screenWidth < 992) { // Small screens
+    form.classList.remove('form-horizontal');
+  } else { // Large screens
+    form.classList.add('form-horizontal');
+  }
+}
+
+// Call the function initially and whenever the window is resized for one-way form
+adjustFormLayout('one-way-form');
+window.addEventListener('resize', function() {
+  adjustFormLayout('one-way-form');
+});
+
+// Call the function initially and whenever the window is resized for round-trip form
+adjustFormLayout('round-trip-form');
+window.addEventListener('resize', function() {
+  adjustFormLayout('round-trip-form');
+});
+
+// Call the function initially and whenever the window is resized for local form
+adjustFormLayout('local-form');
+window.addEventListener('resize', function() {
+  adjustFormLayout('local-form');
+});
+
+// Call the function initially and whenever the window is resized for airport form
+adjustFormLayout('airport-form');
+window.addEventListener('resize', function() {
+  adjustFormLayout('airport-form');
+});
+
+
+
+</script>
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmnaEALc59hQlwhPGJmG46X141ZDL930I&libraries=places&callback=initAutocomplete" async defer></script>
-  </body>
+ </body>
 </html>
