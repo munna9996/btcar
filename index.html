@@ -108,7 +108,23 @@
     }
   </style>
 
+<style>
+  /* Button styling */
+  .btn {
+    background-color: #fdb813!important; /* Blue background color */
+    color: #000; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-family: Roboto, sans-serif;
+    
+}
 
+
+ 
+</style>
 
 
 </head>
@@ -148,18 +164,18 @@
       <div class="col-md-6 col-xl-4">
         <div class="row">
           <div class="col-sm-6 col-6">
-            <button type="button" class="btn btn-primary btn-block mb-3" onclick="showForm('one-way-form')"><i class="fas fa-plane-departure"></i>ONEWAY</button>
+            <button type="button" class="btn btn-primary btn-lg btn-sm btn-xs  btn-block mb-3" onclick="showForm('one-way-form')"><i class="fas fa-plane-departure"></i>ONEWAY</button>
           </div>
           <div class="col-sm-6 col-6">
-            <button type="button" class="btn btn-primary btn-block mb-3" onclick="showForm('round-trip-form')"><i class="fas fa-exchange-alt"></i>ROUND TRIP</button>
+            <button type="button" class="btn btn-primary btn-lg btn-sm btn-xs  btn-block mb-3" onclick="showForm('round-trip-form')"><i class="fas fa-exchange-alt"></i>ROUND TRIP</button>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6 col-6">
-            <button type="button" class="btn btn-primary btn-block mb-3" onclick="showForm('local-form')"><i class="fas fa-map-marker-alt"></i>LOCAL</button>
+            <button type="button" class="btn btn-primary btn-lg btn-sm btn-xs  btn-block mb-3" onclick="showForm('local-form')"><i class="fas fa-map-marker-alt"></i>LOCAL</button>
           </div>
           <div class="col-sm-6 col-6">
-            <button type="button" class="btn btn-primary btn-block mb-3" onclick="showForm('airport-form')"><i class="fas fa-plane"></i>AIR PORT</button>
+            <button type="button" class="btn btn-primary btn-lg btn-sm btn-xs  btn-block mb-3" onclick="showForm('airport-form')"><i class="fas fa-plane"></i>AIR PORT</button>
           </div>
         </div>
       </div>
@@ -174,7 +190,7 @@
           <label for="pickup-location">Pickup Location</label>
           <div class="input-group">
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i>
+             
             </button>
             <input type="text" class="form-control" id="pickup-location" name="pickup-location" placeholder="Enter pickup location" required>
           </div>
@@ -184,13 +200,12 @@
           <div class="input-group">
             <input type="text" class="form-control" id="drop-location" name="drop-location" placeholder="Enter drop location" required>
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+             
             </button>
           </div>
         </div>
         <div class="form-group">
           <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location', 'drop-location')">
-            <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
           </button>
         </div>
         <div class="form-group">
@@ -216,7 +231,7 @@
               <label for="pickup-location-round-trip">Pickup Location</label>
               <div class="input-group">
                 <button class="btn btn-secondary" type="button">
-                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+                  
                 </button>
                 <input type="text" class="form-control" id="pickup-location-round-trip" name="pickup-location-round-trip" placeholder="Enter pickup location">
               </div>
@@ -226,13 +241,13 @@
               <div class="input-group">
                 <input type="text" class="form-control" id="drop-location-round-trip" name="drop-location-round-trip" placeholder="Enter drop location">
                 <button class="btn btn-secondary" type="button">
-                  <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+                 
                 </button>
               </div>
             </div>
             <div class="form-group">
               <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-round-trip', 'drop-location-round-trip')">
-                <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+                
               </button>
             </div>
             <div class="form-group">
@@ -262,7 +277,7 @@
           <label for="pickup-location-local">Pickup Location</label>
           <div class="input-group">
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+              
             </button>
             <input type="text" class="form-control" id="pickup-location-local" name="pickup-location-local" placeholder="Enter pickup location">
           </div>
@@ -272,7 +287,7 @@
           <div class="input-group">
             <input type="text" class="form-control" id="pickup-drop-location-local" name="pickup-drop-location-local" placeholder="Enter pickup-drop location">
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+       
             </button>
           </div>
         </div>
@@ -302,7 +317,7 @@
           <label for="pickup-address-airport">Pickup Location</label>
           <div class="input-group">
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i> <!-- Icon for Pickup -->
+             
             </button>
             <input type="text" class="form-control" id="pickup-address-airport" name="pickup-address-airport" placeholder="Enter pickup address">
           </div>
@@ -312,7 +327,7 @@
           <div class="input-group">
             <input type="text" class="form-control" id="drop-airport" name="drop-airport" placeholder="Enter drop airport">
             <button class="btn btn-secondary" type="button">
-              <i class="fas fa-map-marker-alt"></i> <!-- Icon for Drop -->
+              
             </button>
           </div>
         </div>
