@@ -133,9 +133,137 @@
 </style>
 
 
+<style>
+/* Logo Styling */
+.logo-text {
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
 
 
+.vmr {
+    color: #f6b93b; /* Red color for "VMR" */
+}
 
+.car-rental {
+    color: #3742fa; /* Green color for "Car Rental" */
+}
+
+/* Scrolling Colors */
+.bg-dark.scrolling {
+    background-color: #0000ff; /* Blue color when scrolling */
+}
+
+.ftco-navbar-light.scrolling .navbar-brand .logo-text {
+    color: #ffffff; /* White color for logo text when scrolling */
+}
+
+.scrolling .nav-link {
+    color: #ffffff !important; /* White color for links when scrolling */
+}
+
+/* Toggle Button Styling */
+.navbar-toggler {
+    border-color: #ffffff; /* Change color of the toggle button */
+}
+
+/* Active Link Styling */
+.nav-item.active .nav-link {
+    color: #ffffff; /* Change color of active link */
+}
+
+/* Hover Link Styling */
+.nav-item .nav-link:hover {
+    color: #ffffff; /* Change color of link on hover */
+}
+
+.navbar {
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    width: 100%; /* Occupy full width */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar-brand span {
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    
+}
+
+.custom-container {
+    padding-top: 70px; /* Adjust this value to match the height of your navbar */
+}
+
+
+</style>
+
+
+<style>
+ #scroll-up {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        cursor: pointer;
+    }
+</style>
+
+<style>
+/* Style for Google Autocomplete suggestions */
+.pac-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    max-width: 300px; /* Adjust width as needed */
+    width: auto !important;
+}
+
+.pac-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pac-item:hover {
+    background-color: #f5f5f5;
+}
+
+.pac-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Style for Autocomplete suggestion text */
+.pac-item-query {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style for Autocomplete suggestion secondary text (e.g., location details) */
+.pac-item-subtext {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Style for selected Autocomplete suggestion */
+/* Style for Google Autocomplete suggestions icon */
+.pac-icon {
+    width: 24px; /* Adjust icon width as needed */
+    height: 24px; /* Adjust icon height as needed */
+    margin-right: 10px; /* Adjust margin as needed */
+    /* URL to your custom icon image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Example styles for a map marker icon */
+.pac-icon::before {
+    content: ''; /* Clear the default content */
+}
+.pac-container:after{display:none !important;}
+
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -416,6 +544,18 @@ function initAutocomplete() {
     var pickupAutocompleteAirport = new google.maps.places.Autocomplete(pickupInputAirport, options);
     var dropAutocompleteAirport = new google.maps.places.Autocomplete(dropInputAirport, options);
 }
+
 </script>
+
+<script>
+    // Scroll the page to the top when input fields are focused
+    document.getElementById('pickup-location').addEventListener('focus', scrollToTop);
+    document.getElementById('drop-location').addEventListener('focus', scrollToTop);
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
