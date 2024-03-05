@@ -335,15 +335,7 @@
             
           </div>
         </div>
-<script>
-    // Scroll the page to the top when input fields are focused
-    document.getElementById('pickup-location').addEventListener('focus', scrollToTop);
-    document.getElementById('drop-location').addEventListener('focus', scrollToTop);
 
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
 
     
         <div class="form-group">
@@ -554,7 +546,15 @@ function initAutocomplete() {
 
 </script>
 
+<script>
+    // Scroll the page to the top when input fields are focused
+    document.getElementById('pickup-location').addEventListener('focus', scrollToTop);
+    document.getElementById('drop-location').addEventListener('focus', scrollToTop);
 
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
