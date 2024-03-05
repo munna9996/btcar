@@ -1,3 +1,4 @@
+
 <html lang="en">
   <head>
     <title>Vmr carrental</title>
@@ -23,11 +24,12 @@
     
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+  
 
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 <style>
 #one-way-form {background-color:#fff;
   padding-top: 10px; /* Padding for top */
@@ -84,6 +86,7 @@
 .form-control {
   padding: 5px 10px; /* Adjust the padding of the input field */
   margin-bottom: 10px; /* Adjust the bottom margin of the input field */
+  background-color: #00000000;
 }
 
 </style>
@@ -114,11 +117,14 @@
     background-color: #fdb813!important; /* Blue background color */
     color: #000; /* White text color */
     border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding */
-    font-size: 16px; /* Font size */
+    border-radius: 8px; /* Rounded corners */
+    height: 50px; /* Set your desired height */
+    width: 100%; /* Set your desired width */
+    font-size: 20px; /* Font size */
     transition: background-color 0.3s ease; /* Smooth transition */
     font-family: Roboto, sans-serif;
+    font-weight: bold;
+    white-space: normal;
     
 }
 
@@ -127,32 +133,97 @@
 </style>
 
 
+<style>
+/* Logo Styling */
+.logo-text {
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+
+.vmr {
+    color: #f6b93b; /* Red color for "VMR" */
+}
+
+.car-rental {
+    color: #3742fa; /* Green color for "Car Rental" */
+}
+
+/* Scrolling Colors */
+.bg-dark.scrolling {
+    background-color: #0000ff; /* Blue color when scrolling */
+}
+
+.ftco-navbar-light.scrolling .navbar-brand .logo-text {
+    color: #ffffff; /* White color for logo text when scrolling */
+}
+
+.scrolling .nav-link {
+    color: #ffffff !important; /* White color for links when scrolling */
+}
+
+/* Toggle Button Styling */
+.navbar-toggler {
+    border-color: #ffffff; /* Change color of the toggle button */
+}
+
+/* Active Link Styling */
+.nav-item.active .nav-link {
+    color: #ffffff; /* Change color of active link */
+}
+
+/* Hover Link Styling */
+.nav-item .nav-link:hover {
+    color: #ffffff; /* Change color of link on hover */
+}
+
+.navbar {
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    width: 100%; /* Occupy full width */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar-brand span {
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    
+}
+
+.custom-container {
+    padding-top: 70px; /* Adjust this value to match the height of your navbar */
+}
+
+
+</style>
+
+
+
+
+
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">VMR<span>car rental</span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-text vmr">VMR</span><span class="logo-text car-rental">Car Rental</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	          <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-    
-
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
 
@@ -187,37 +258,25 @@
           <!-- One Way Form Content -->
           <h2 class="card-title">One Way</h2>
            <div class="form-group">
-          <label for="pickup-location">Pickup Location</label>
+         
           <div class="input-group">
-            <button class="btn btn-secondary" type="button">
-             
-            </button>
+  
             <input type="text" class="form-control" id="pickup-location" name="pickup-location" placeholder="Enter pickup location" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="drop-location">Drop Location</label>
+          
           <div class="input-group">
             <input type="text" class="form-control" id="drop-location" name="drop-location" placeholder="Enter drop location" required>
-            <button class="btn btn-secondary" type="button">
-             
-            </button>
+            
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location', 'drop-location')">
-          </button>
+         
         </div>
+        
         <div class="form-group">
-          <label for="pickup-date">Pickup Date</label>
-          <input type="date" class="form-control" id="pickup-date" name="pickup-date" required>
-        </div>
-        <div class="form-group">
-          <label for="pickup-time">Pickup Time</label>
-          <input type="time" class="form-control" id="pickup-time" name="pickup-time" required>
-        </div>
-        <div class="form-group">
-          <label for="mobile-number">Mobile Number</label>
+         
           <input type="tel" class="form-control" id="mobile-number" name="mobile-number" placeholder="Enter mobile number" required>
         </div>
         <div class="form-group text-center">
@@ -228,42 +287,25 @@
           <!-- Round Trip Form Content -->
           <h2 class="card-title">Round Trip</h2>
             <div class="form-group">
-              <label for="pickup-location-round-trip">Pickup Location</label>
+              
               <div class="input-group">
-                <button class="btn btn-secondary" type="button">
-                  
-                </button>
+               
                 <input type="text" class="form-control" id="pickup-location-round-trip" name="pickup-location-round-trip" placeholder="Enter pickup location">
               </div>
             </div>
             <div class="form-group">
-              <label for="drop-location-round-trip">Drop Location</label>
+              
               <div class="input-group">
                 <input type="text" class="form-control" id="drop-location-round-trip" name="drop-location-round-trip" placeholder="Enter drop location">
-                <button class="btn btn-secondary" type="button">
-                 
-                </button>
+             
               </div>
             </div>
             <div class="form-group">
-              <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-round-trip', 'drop-location-round-trip')">
-                
-              </button>
+              
             </div>
+        
             <div class="form-group">
-              <label for="pickup-date-round">Pickup Date</label>
-              <input type="date" class="form-control" id="pickup-date-round" name="pickup-date-round">
-            </div>
-            <div class="form-group">
-              <label for="return-date">Return Date</label>
-              <input type="date" class="form-control" id="return-date" name="return-date">
-            </div>
-            <div class="form-group">
-              <label for="pickup-time-round">Pickup Time</label>
-              <input type="time" class="form-control" id="pickup-time-round" name="pickup-time-round">
-            </div>
-            <div class="form-group">
-              <label for="mobile-number-round">Mobile Number</label>
+            
               <input type="tel" class="form-control" id="mobile-number-round" name="mobile-number-round" placeholder="Enter mobile number">
             </div>
             <div class="form-group text-center">
@@ -274,30 +316,25 @@
           <!-- Local Form Content -->
           <h2 class="card-title">Local</h2>
            <div class="form-group">
-          <label for="pickup-location-local">Pickup Location</label>
+          
           <div class="input-group">
-            <button class="btn btn-secondary" type="button">
-              
-            </button>
+        
             <input type="text" class="form-control" id="pickup-location-local" name="pickup-location-local" placeholder="Enter pickup location">
           </div>
         </div>
         <div class="form-group">
-          <label for="pickup-drop-location-local">Pickup-Drop Location</label>
+          
           <div class="input-group">
             <input type="text" class="form-control" id="pickup-drop-location-local" name="pickup-drop-location-local" placeholder="Enter pickup-drop location">
-            <button class="btn btn-secondary" type="button">
-       
-            </button>
+      
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-location-local', 'pickup-drop-location-local')">
-            <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
+         
           </button>
         </div>
         <div class="form-group">
-          <label for="mobile-number-local">Mobile Number</label>
+        
           <input type="tel" class="form-control" id="mobile-number-local" name="mobile-number-local" placeholder="Enter mobile number">
         </div>
         <div class="form-group text-center">
@@ -314,36 +351,24 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="pickup-address-airport">Pickup Location</label>
+         
           <div class="input-group">
-            <button class="btn btn-secondary" type="button">
-             
-            </button>
+      
             <input type="text" class="form-control" id="pickup-address-airport" name="pickup-address-airport" placeholder="Enter pickup address">
           </div>
         </div>
         <div class="form-group">
-          <label for="drop-airport">Drop Airport</label>
+        
           <div class="input-group">
             <input type="text" class="form-control" id="drop-airport" name="drop-airport" placeholder="Enter drop airport">
-            <button class="btn btn-secondary" type="button">
-              
-            </button>
+      
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-secondary" type="button" onclick="reverseLocations('pickup-address-airport', 'drop-airport')">
-            <i class="fas fa-exchange-alt"></i> <!-- Icon for reversing locations -->
-          </button>
+         
         </div>
-        <div class="form-group">
-          <label for="pickup-date-airport">Pickup Date</label>
-          <input type="date" class="form-control" id="pickup-date-airport" name="pickup-date-airport">
-        </div>
-        <div class="form-group">
-          <label for="pickup-time-airport">Pickup Time</label>
-          <input type="time" class="form-control" id="pickup-time-airport" name="pickup-time-airport">
-        </div>
+      
+      
         <div class="form-group">
           <label for="mobile-number-airport">Mobile Number</label>
           <input type="tel" class="form-control" id="mobile-number-airport" name="mobile-number-airport" placeholder="Enter mobile number">
