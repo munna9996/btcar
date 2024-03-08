@@ -325,11 +325,114 @@ border-radius: 5px;}
 </style>
 <style>
 #why-vmr {
-  margin-top: 40px; /* Default margin for all screen sizes */
+  padding: 50px 0;
+}
 
+#why-vmr h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#why-vmr h6 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#why-vmr p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+#why-vmr img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#why-vmr .col-md-6 {
+  display: flex;
+  align-items: center;
+}
+
+#why-vmr .col-md-6:nth-child(odd) {
+  order: 1;
+}
+
+#why-vmr .col-md-6:nth-child(even) {
+  order: -1;
+}
+
+#why-vmr button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#why-vmr button:hover {
+  background-color: #0056b3;
+}
+
+
+</style>
+<style>
+  /* Style for the section container */
+section {
+  padding: 50px 0;
+}
+
+/* Style for the heading */
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Style for the subheadings */
+section h6 {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Style for the paragraphs */
+section p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Style for the image */
+section img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Style for the button */
+section button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for the button */
+section button:hover {
+  background-color: #0056b3;
 }
 
 </style>
+
+
+
 <style>
  @media (max-width: 360px) {
       .footer .container {
@@ -513,10 +616,10 @@ border-radius: 5px;}
 <section id="why-vmr">
   <div class="container">
     <div class="row ">
-      <div class="col-md-6 order-md-first" >
+      <div class="col-md-6" >
         <img src="images/bgl_1.jpg" alt="" class="img-fluid">
       </div>
-      <div class="col-md=6  offset-1 order-sm-first">
+      <div class="col-md=6  offset-1 order-md-last">
         <h1>Why VMR Car Rental?</h1>
         <h6>Clean Car</h6>
         <p>Sanitized Post-Ride    Professionally Cleaned    Odor-Free</p>
@@ -558,7 +661,7 @@ border-radius: 5px;}
 
 
 <section>
-  <footer class="footer bg-dark text-white mt-4">
+  <footer class="footer bg-dark text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
